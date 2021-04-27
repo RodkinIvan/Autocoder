@@ -29,14 +29,27 @@ int main() {
     std::cout << std::fixed;
     std::cout << std::setprecision(2);
     Autocoder a(8, 5);
+    std::cout << "Enter the learning layout (enter 'default' if want it to be 'Ohayo gozaimasen za warudo':)" << '\n';
+    std::string learning;
+    std::cin >> learning;
+    learning = learning == "default" ? "Ohayo gozaimasen za warudo" : learning;
+    std::cout << "Starting to learn '" << learning << "'..." << '\n';
+    a.learn(learning);
+    std::string text;
+    std::cout << "Enter encoding phrase (exit if want to stop):" << '\n';
+    while(true){
+        std::cin >> text;
+        if(text == "exit"){
+            break;
+        }
+        auto out = a.encode(text);
+        std::vector<bool> expected = getR(text);
+        std::cout << "Coded:            ";
+        print(out);
+        std::cout << "Expected decoded: ";
+        print(expected);
+        std::cout << '\'' + text + "\' -> '" + a.decode(out) << "'\n";
+    }
 
-    a.learn("Ohayo gozaimasen");
-    std::string text = "Ohayo";
-    auto out = a.encode(text);
-    std::vector<bool> expected = getR(text);
-    std::cout << "Coded:            ";
-    print(out);
-    std::cout << "Expected decoded: ";
-    print(expected);
-    std::cout << '\'' + text + "\' -> '" + a.decode(out) << "'\n";
+
 }
