@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Autocoder.h"
+#include "AutocoderSrc/Autocoder.h"
 
 void print(const std::vector<bool>& v) {
     for (auto i : v) {
