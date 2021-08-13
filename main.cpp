@@ -29,8 +29,8 @@ std::vector<bool> getR(const std::string& s) {
 int main() {
     std::cout << std::fixed;
     std::cout << std::setprecision(2);
-    Autocoder a(8, 5);
-    std::cout << "Enter the learning layout (enter 'default' if want it to be 'Ohayo gozaimasen za warudo':)" << '\n';
+    Autocoder a(8, 6);
+    std::cout << "Enter the learning layout (enter 'default' if want it to be 'Ohayo gozaimasen za warudo'):" << '\n';
     std::string learning;
 
     std::getline(std::cin, learning);
@@ -52,6 +52,4 @@ int main() {
         print(expected);
         std::cout << '\'' + text + "\' -> '" + a.decode(out) << "'\n";
     }
-
-
 }
